@@ -385,11 +385,11 @@ export default function ClosedCaptionsSite() {
               <button
                 type="button"
                 onClick={toggleTheme}
-                className={`relative h-6 w-11 rounded-full border transition-colors ${isDark ? 'bg-blue-600 border-blue-600' : 'bg-gray-200 border-gray-300 dark:bg-gray-700 dark:border-gray-600'}`}
+                className={`relative inline-flex h-7 w-12 rounded-full border-0 ring-1 ring-inset transition-colors ${isDark ? 'bg-blue-600 ring-blue-500/50' : 'bg-gray-200 ring-gray-300 dark:bg-gray-700 dark:ring-gray-600'}`}
                 aria-label="Toggle dark mode"
               >
                 <span
-                  className={`absolute left-0.5 top-0.5 h-5 w-5 transform rounded-full bg-white shadow transition-transform ${isDark ? 'translate-x-5' : 'translate-x-0'}`}
+                  className={`absolute left-0.5 top-0.5 h-6 w-6 transform rounded-full bg-white shadow-sm transition-transform ${isDark ? 'translate-x-5' : 'translate-x-0'}`}
                 />
               </button>
               <span className="min-w-[3ch] text-gray-600 dark:text-white">{isDark ? 'Dark' : 'Light'}</span>

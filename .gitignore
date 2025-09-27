@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+dist/
+.env
+.env.*
+.npm/
+.vercel
+.netlify
+.vscode/
+.idea/

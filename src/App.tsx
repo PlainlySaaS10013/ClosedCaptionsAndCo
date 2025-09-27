@@ -251,7 +251,6 @@ export default function ClosedCaptionsSite() {
                 },
                 { q: 'Turnaround?', a: '<24 hours, 7 days a week!' },
                 { q: 'File types?', a: '.SRT, .VTT, .SBV—plus YouTube direct upload.' },
-                { q: 'Revisions?', a: 'Included. We match your voice and fix any names/terms fast.' },
               ]
               return items.map((item, idx) => (
                 <FaqRow

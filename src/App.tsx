@@ -246,30 +246,58 @@ export default function ClosedCaptionsSite() {
             <p className="mt-2 text-sm text-gray-600">Monthly plans. Cancel anytime.</p>
           </div>
 
-          <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-sm dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
-              <h4 className="text-base font-semibold">Under 1M subscribers</h4>
-              <div className="mt-2 text-3xl font-extrabold">$299<span className="text-sm font-semibold">/mo</span></div>
-              <button
-                type="button"
-                onClick={() => setIsContactOpen(true)}
-                className="mt-6 w-full rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
-              >
-                Get in touch →
-              </button>
-            </div>
-            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-sm dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
-              <h4 className="text-base font-semibold">1M+ subscribers</h4>
-              <div className="mt-2 text-3xl font-extrabold">$499<span className="text-sm font-semibold">/mo</span></div>
-              <button
-                type="button"
-                onClick={() => setIsContactOpen(true)}
-                className="mt-6 w-full rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
-              >
-                Get in touch →
-              </button>
-            </div>
-          </div>
+          {(() => {
+            const [tier, setTier] = useState<'under' | 'over'>('under')
+            const underActive = tier === 'under'
+            const overActive = tier === 'over'
+            return (
+              <>
+                <div className="mx-auto mt-6 flex justify-center">
+                  <div className="inline-flex rounded-xl border border-gray-200 p-1 dark:border-gray-800" role="tablist" aria-label="Subscriber tier">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={underActive}
+                      onClick={() => setTier('under')}
+                      className={`px-4 py-2 text-sm font-semibold rounded-lg ${underActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
+                    >
+                      Under 1M subs
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={overActive}
+                      onClick={() => setTier('over')}
+                      className={`ml-1 px-4 py-2 text-sm font-semibold rounded-lg ${overActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
+                    >
+                      1M+ subs
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mx-auto mt-6 grid max-w-5xl gap-4 sm:grid-cols-2">
+                  <div className={`rounded-2xl border p-6 shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-900 ${underActive ? 'border-blue-400' : 'border-blue-100 dark:border-gray-800 opacity-70'}`}>
+                    <h4 className="text-base font-semibold">Under 1M subscribers</h4>
+                    <div className="mt-2 text-3xl font-extrabold">$299<span className="text-sm font-semibold">/mo</span></div>
+                  </div>
+                  <div className={`rounded-2xl border p-6 shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-900 ${overActive ? 'border-blue-400' : 'border-blue-100 dark:border-gray-800 opacity-70'}`}>
+                    <h4 className="text-base font-semibold">1M+ subscribers</h4>
+                    <div className="mt-2 text-3xl font-extrabold">$499<span className="text-sm font-semibold">/mo</span></div>
+                  </div>
+                </div>
+
+                <div className="mx-auto mt-6 flex max-w-5xl justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setIsContactOpen(true)}
+                    className="w-full max-w-md rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+                  >
+                    Get in touch →
+                  </button>
+                </div>
+              </>
+            )
+          })()}
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-xs text-gray-500">
             Full money back if you don't see an average increase of 5% in your viewership and/or watchtime after the first 28 days.

@@ -41,6 +41,7 @@ function CopyEmailButton({ label, className }: { label: string; className: strin
 }
 
 export default function ClosedCaptionsSite() {
+  const [isContactOpen, setIsContactOpen] = useState(false)
   return (
     <div className="min-h-screen bg-white text-gray-900 antialiased">
       {/* NAVBAR */}
@@ -235,7 +236,18 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h5 className="text-center text-sm font-semibold tracking-wide text-gray-500">FAQ</h5>
           <div className="mx-auto mt-6 max-w-3xl divide-y divide-gray-200">
-            <FaqRow q="How do we start?" a="Share your channel and preferred languages. We scope the first batch and send a quote." />
+            <FaqRow
+              q="How do we start?"
+              a={
+                <button
+                  type="button"
+                  onClick={() => setIsContactOpen(true)}
+                  className="text-blue-700 underline decoration-blue-300 underline-offset-4 hover:decoration-blue-500"
+                >
+                  Get in touch
+                </button>
+              }
+            />
             <FaqRow q="Turnaround?" a="<24 hours, 7 days a week!" />
             <FaqRow q="File types?" a=".SRT, .VTT, .SBV—plus YouTube direct upload." />
             <FaqRow q="Revisions?" a="Included. We match your voice and fix any names/terms fast." />
@@ -260,6 +272,8 @@ export default function ClosedCaptionsSite() {
           </div>
         </div>
       </footer>
+
+      <ContactModal open={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </div>
   )
 }
@@ -273,15 +287,119 @@ function BenefitCard({ title, desc }: { title: string; desc: string }) {
   )
 }
 
-function FaqRow({ q, a }: { q: string; a: string }) {
+function FaqRow({ q, a }: { q: string; a: React.ReactNode }) {
   return (
     <details className="group py-4">
       <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-semibold">
         {q}
         <span className="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-200 text-xs transition group-open:rotate-45">+</span>
       </summary>
-      <p className="mt-2 pr-8 text-sm text-gray-600">{a}</p>
+      <div className="mt-2 pr-8 text-sm text-gray-600">{a}</div>
     </details>
+  )
+}
+
+type ContactModalProps = { open: boolean; onClose: () => void }
+
+function ContactModal({ open, onClose }: ContactModalProps) {
+  const dialogRef = useRef<HTMLDivElement | null>(null)
+  const [email, setEmail] = useState('')
+  const [channel, setChannel] = useState('')
+  const [note, setNote] = useState('')
+  const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [open, onClose])
+
+  useEffect(() => {
+    if (!open) return
+    const el = dialogRef.current
+    el?.querySelector('input')?.focus()
+  }, [open])
+
+  const handleBackdrop = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) onClose()
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    const payload = `Inquiry\nEmail: ${email}\nYouTube: ${channel}\nNotes: ${note || '(none)'}\n`
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(payload)
+      } else {
+        const ta = document.createElement('textarea')
+        ta.value = payload
+        document.body.appendChild(ta)
+        ta.select()
+        document.execCommand('copy')
+        document.body.removeChild(ta)
+      }
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1500)
+      onClose()
+    } catch {
+      // swallow
+    }
+  }
+
+  if (!open) return null
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={handleBackdrop}>
+      <div ref={dialogRef} role="dialog" aria-modal="true" className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-semibold">Get in touch</h3>
+          <button type="button" aria-label="Close" onClick={onClose} className="rounded-full p-2 hover:bg-gray-100">✕</button>
+        </div>
+        <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
+          <div>
+            <label className="block text-xs font-medium text-gray-600">Email address</label>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none focus:border-blue-400 focus:ring-0"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-gray-600">YouTube channel URL</label>
+            <input
+              type="url"
+              required
+              value={channel}
+              onChange={(e) => setChannel(e.target.value)}
+              className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none focus:border-blue-400 focus:ring-0"
+              placeholder="https://youtube.com/@yourchannel"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-gray-600">Comments (optional)</label>
+            <textarea
+              rows={4}
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              className="mt-1 w-full resize-y rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none focus:border-blue-400 focus:ring-0"
+              placeholder="Anything else you want us to know?"
+            />
+          </div>
+          <div className="flex items-center justify-end gap-3 pt-2">
+            <button type="button" onClick={onClose} className="rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold hover:bg-gray-50">Cancel</button>
+            <button type="submit" className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+              {copied ? 'Copied!' : 'Submit'}
+            </button>
+          </div>
+          <p className="text-[11px] text-gray-500">We’ll copy your details to the clipboard so you can share or paste elsewhere.</p>
+        </form>
+      </div>
+    </div>
   )
 }
 

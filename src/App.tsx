@@ -163,10 +163,6 @@ export default function ClosedCaptionsSite() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 inline-block h-2 w-2 rounded-full bg-black" />
-                  Brand voice preserved across languages.
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 inline-block h-2 w-2 rounded-full bg-black" />
                   Delivered and uploaded for you—no busywork.
                 </li>
               </ul>

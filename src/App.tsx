@@ -139,16 +139,14 @@ export default function ClosedCaptionsSite() {
               <div className="rounded-2xl border border-gray-200 p-4">
                 <div className="mb-2 text-xs font-semibold tracking-wide text-gray-500">BEFORE</div>
                 <div className="rounded-xl bg-gray-100 p-4 text-sm text-gray-600">
-                  auto caption: "ya we kind of sorta just wing it, idk" <br />
-                  timing: off • punctuation: missing • names: wrong
+                  auto caption: "captions help boost your viewership we have scene many clients grow fast get in touch now"
                 </div>
               </div>
               {/* AFTER card */}
               <div className="rounded-2xl border border-blue-700 p-4 shadow-[0_2px_0_0_rgba(29,78,216,0.9)]">
                 <div className="mb-2 text-xs font-semibold tracking-wide text-blue-700">AFTER</div>
                 <div className="rounded-xl bg-blue-700 p-4 text-sm text-white">
-                  “Yeah—we planned this. Here’s why it works.” <br />
-                  timing: precise • punctuation: correct • names: verified
+                  “Captions help boost your viewership. We have scene many clients grow fast. Get in touch now!”
                 </div>
               </div>
             </div>

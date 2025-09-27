@@ -409,7 +409,7 @@ function FaqRow({ q, a, open, onToggle }: { q: string; a: React.ReactNode; open?
           {open ? '^' : 'v'}
         </span>
       </button>
-      {open ? <div className="mt-2 pr-8 text-sm text-gray-600">{a}</div> : null}
+      {open ? <div className="mt-2 pr-8 text-sm text-gray-600 dark:text-white">{a}</div> : null}
     </div>
   )
 }

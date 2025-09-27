@@ -146,11 +146,11 @@ export default function ClosedCaptionsSite() {
             </div>
             <div className="grid gap-4">
               {/* BEFORE card */}
-              <div className="rounded-2xl border border-gray-200 p-4">
+              <div className="rounded-2xl border border-gray-200 p-4 dark:border-gray-800">
                 <div className="mb-2 text-xs font-semibold tracking-wide text-gray-500 dark:text-white">
                   BEFORE <span role="img" aria-label="cross mark">❌</span>
                 </div>
-                <div className="rounded-xl bg-gray-100 p-4 text-sm text-gray-600">
+                <div className="rounded-xl bg-gray-100 p-4 text-sm text-gray-600 dark:bg-gray-800 dark:text-gray-200">
                   "captions help boost your viewership we have scene many clients grow fast get in touch now"
                 </div>
               </div>
@@ -177,7 +177,7 @@ export default function ClosedCaptionsSite() {
           </div>
 
           <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center text-gray-900 dark:text-gray-900 shadow-sm">
+            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center text-gray-900 shadow-sm dark:border-gray-800 dark:from-gray-900 dark:to-gray-900 dark:text-white">
               <CountUpOnView
                 end={8.21}
                 decimals={2}
@@ -187,7 +187,7 @@ export default function ClosedCaptionsSite() {
               />
               <div className="mt-1 text-sm font-semibold">Increased viewership</div>
             </div>
-            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center text-gray-900 dark:text-gray-900 shadow-sm">
+            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center text-gray-900 shadow-sm dark:border-gray-800 dark:from-gray-900 dark:to-gray-900 dark:text-white">
               <CountUpOnView
                 end={14.6}
                 decimals={1}
@@ -289,11 +289,11 @@ export default function ClosedCaptionsSite() {
       {/* CTA */}
       <section className="relative cv-auto">
         <div className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 text-gray-900 dark:text-gray-900 sm:p-10">
+          <div className="rounded-3xl border border-gray-200 bg-white p-8 text-gray-900 sm:p-10 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
       <div>
-                <h4 className="text-xl font-bold text-gray-900 dark:text-gray-900">Ready to level up your captions?</h4>
-                <p className="mt-1 text-sm text-gray-600 dark:text-gray-700">Apply to become a client today.</p>
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white">Ready to level up your captions?</h4>
+                <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">Apply to become a client today.</p>
               </div>
               <div className="flex gap-3">
                 <CopyEmailButton

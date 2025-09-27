@@ -108,7 +108,7 @@ export default function ClosedCaptionsSite() {
                 onClick={() => setIsContactOpen(true)}
                 className="inline-flex items-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
               >
-                Get in touch
+                Become a client
               </button>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function ClosedCaptionsSite() {
             </p>
             <div className="mt-8 inline-flex items-center gap-3">
               <CopyEmailButton
-                label="Get in touch"
+                label="Become a client"
                 className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
               />
             </div>
@@ -264,7 +264,7 @@ export default function ClosedCaptionsSite() {
                     onClick={() => setIsContactOpen(true)}
                     className="w-full max-w-md rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700"
                   >
-                    Get in touch →
+                    Become a client →
                   </button>
                 </div>
               </>
@@ -302,7 +302,7 @@ export default function ClosedCaptionsSite() {
               </div>
               <div className="flex gap-3">
                 <CopyEmailButton
-                  label="Get in touch →"
+                  label="Become a client →"
                   className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
                 />
                 <CopyEmailButton
@@ -331,7 +331,7 @@ export default function ClosedCaptionsSite() {
                       onClick={() => setIsContactOpen(true)}
                       className="text-blue-700 underline decoration-blue-300 underline-offset-4 hover:decoration-blue-500"
                     >
-                      Get in touch →
+                      Become a client →
                     </button>
                   ),
                 },
@@ -474,7 +474,7 @@ function ContactModal({ open, onClose }: ContactModalProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={handleBackdrop}>
       <div ref={dialogRef} role="dialog" aria-modal="true" className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold">Get in touch →</h3>
+          <h3 className="text-lg font-semibold">Become a client →</h3>
           <button
             type="button"
             aria-label="Close"

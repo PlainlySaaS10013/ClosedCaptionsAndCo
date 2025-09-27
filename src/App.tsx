@@ -140,7 +140,8 @@ export default function ClosedCaptionsSite() {
               <h3 className="text-xl font-semibold">Before → After</h3>
               
               <p className="mt-3 text-sm text-gray-600 dark:text-white">
-                AI-powered language translations with unparaelled nuance. Always human‑verified.
+                <span className="block">AI-powered language translations with unparaelled nuance.</span>
+                <span className="block">Always human‑verified.</span>
               </p>
               
             </div>

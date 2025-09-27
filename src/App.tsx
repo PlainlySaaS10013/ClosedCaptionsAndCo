@@ -284,7 +284,7 @@ export default function ClosedCaptionsSite() {
             <BenefitCard title="🔎 SEO that ranks." desc="Indexable, keyword‑rich captions boost discoverability and long‑tail search. We also optimize titles, descriptions, and tags." />
             <BenefitCard title="📈 Retention & watch time." desc="Clearer captions reduce drop‑off and increase AVD, session duration, and completion rates." />
             <BenefitCard title="🤖 Human + AI translation." desc="Patent‑pending AI paired with linguists delivers idiomatic, on‑brand subtitles—no awkward literalism." />
-            <BenefitCard title="🌍 40+ languages on tap." desc="Spanish → Hindi, plus locale variants. We maintain terminology glossaries per channel." />
+            <BenefitCard title="🌍 100+ languages on tap." desc="Spanish → Hindi, plus locale variants. We maintain terminology glossaries per channel." />
             <BenefitCard title="🧑‍💻 White‑glove publishing." desc="We deliver SRT/VTT and push directly to YouTube. Optional add‑ons: chapters, thumbnails, metadata polish." />
             <BenefitCard title="🔐 Scoped access only." desc="Manager‑level permissions limited to captions. Audit trail. Revocable anytime." />
           </div>

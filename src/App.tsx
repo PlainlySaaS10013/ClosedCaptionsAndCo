@@ -176,7 +176,7 @@ export default function ClosedCaptionsSite() {
               <div className="rounded-2xl border border-gray-200 p-4">
                 <div className="mb-2 text-xs font-semibold tracking-wide text-gray-500">BEFORE</div>
                 <div className="rounded-xl bg-gray-100 p-4 text-sm text-gray-600">
-                  auto caption: "captions help boost your viewership we have scene many clients grow fast get in touch now"
+                  "captions help boost your viewership we have scene many clients grow fast get in touch now"
                 </div>
               </div>
               {/* AFTER card */}

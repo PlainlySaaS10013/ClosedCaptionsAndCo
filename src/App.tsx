@@ -272,7 +272,7 @@ export default function ClosedCaptionsSite() {
           })()}
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-xs text-gray-500">
-            Full money back if you don't see an average increase of 5% in your viewership and/or watchtime after the first 28 days.
+            Full money back if you don't see an average increase of at least 5% or more in your viewership and/or watchtime within the first 28 days.
           </p>
         </div>
       </section>

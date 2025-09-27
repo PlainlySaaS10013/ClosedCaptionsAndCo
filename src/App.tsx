@@ -276,7 +276,7 @@ export default function ClosedCaptionsSite() {
       <section id="benefits" className="relative cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <BenefitCard title="🔎 SEO that ranks." desc="Indexable, keyword‑rich captions boost discoverability and long‑tail search. We also optimize titles, descriptions, and tags." />
+            <BenefitCard title="🔎 SEO that ranks." desc="Indexable, keyword‑rich captions boost discoverability and long‑tail search—adding relevant, machine‑readable metadata. We also optimize titles, descriptions, and tags." />
             <BenefitCard title="📈 Retention & watch time." desc="Clearer captions reduce drop‑off and increase AVD, session duration, and completion rates." />
             <BenefitCard title="🤖 Human + AI translation." desc="Patent‑pending AI paired with linguists delivers idiomatic, on‑brand subtitles—no awkward literalism." />
             <BenefitCard title="🌍 100+ languages on tap." desc="Spanish → Hindi, plus locale variants. We maintain terminology glossaries per channel." />

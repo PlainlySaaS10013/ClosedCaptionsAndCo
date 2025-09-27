@@ -467,9 +467,9 @@ function ContactModal({ open, onClose }: ContactModalProps) {
   if (!open) return null
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={handleBackdrop}>
-      <div ref={dialogRef} role="dialog" aria-modal="true" className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+      <div ref={dialogRef} role="dialog" aria-modal="true" className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl text-gray-900">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold">Become a client →</h3>
+          <h3 className="text-lg font-semibold text-gray-900">Become a client →</h3>
           <button
             type="button"
             aria-label="Close"

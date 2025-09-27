@@ -222,11 +222,11 @@ export default function ClosedCaptionsSite() {
                 </div>
               </div>
               {/* AFTER card */}
-              <div className="rounded-2xl border border-blue-700 p-4 shadow-[0_2px_0_0_rgba(29,78,216,0.9)]">
+              <div className="rounded-2xl border-2 border-blue-700 p-5 shadow-[0_2px_0_0_rgba(29,78,216,0.9)]">
                 <div className="mb-2 text-xs font-semibold tracking-wide text-blue-700 dark:text-white">
                   AFTER <span role="img" aria-label="check mark">✅</span>
                 </div>
-                <div className="rounded-xl bg-blue-700 p-4 text-sm text-white">
+                <div className="rounded-2xl bg-blue-700 p-5 text-sm text-white">
                   “Captions help boost your viewership. We have scene many clients grow fast. Get in touch now!”
                 </div>
               </div>

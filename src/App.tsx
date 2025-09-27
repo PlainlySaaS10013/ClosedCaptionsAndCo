@@ -147,16 +147,7 @@ export default function ClosedCaptionsSite() {
               <p className="mt-3 text-sm text-gray-600 dark:text-white">
                 AI-powered language translations with unparaelled nuance. Always human‑verified.
               </p>
-              <ul className="mt-6 space-y-3 text-sm text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 inline-block h-2 w-2 rounded-full bg-black" />
-                  Clarity: timing, punctuation, casing—done right.
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 inline-block h-2 w-2 rounded-full bg-black" />
-                  Delivered and uploaded for you—no busywork.
-                </li>
-              </ul>
+              
             </div>
             <div className="grid gap-4">
               {/* BEFORE card */}

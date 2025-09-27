@@ -266,7 +266,7 @@ export default function ClosedCaptionsSite() {
             )
           })()}
 
-          <p className="mx-auto mt-6 max-w-3xl text-center text-xs text-gray-500">
+          <p className="mx-auto mt-6 w-fit text-center text-xs text-gray-500 whitespace-normal sm:whitespace-nowrap dark:text-white">
             Full money back if you don't see an average increase of at least 5% or more in your viewership and/or watchtime within the first 28 days.
           </p>
         </div>

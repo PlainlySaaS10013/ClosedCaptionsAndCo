@@ -249,7 +249,7 @@ export default function ClosedCaptionsSite() {
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
                 <h4 className="text-xl font-bold">Ready to level up your captions?</h4>
-                <p className="mt-1 text-sm text-gray-600">Reply with your channel link. We’ll audit your last 5 uploads.</p>
+                <p className="mt-1 text-sm text-gray-600">Apply to become a client today.</p>
               </div>
               <div className="flex gap-3">
                 <CopyEmailButton

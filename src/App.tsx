@@ -266,7 +266,7 @@ export default function ClosedCaptionsSite() {
               <span role="img" aria-label="United States">🇺🇸</span> Based in Atlanta, Georgia •{' '}
               <CopyEmailButton
                 label={EMAIL}
-                className="underline decoration-blue-300 underline-offset-4 hover:decoration-blue-500 text-blue-700"
+                className="underline decoration-blue-300 underline-offset-4 text-blue-700 hover:text-blue-600 hover:decoration-blue-600"
               />
             </p>
           </div>

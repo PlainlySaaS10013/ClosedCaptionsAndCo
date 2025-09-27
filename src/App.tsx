@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const EMAIL = 'hello@subtitles.yt'
 
@@ -165,11 +165,23 @@ export default function ClosedCaptionsSite() {
 
           <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-gray-200 p-6 text-center">
-              <div className="text-3xl font-extrabold">+8.21%</div>
+              <CountUpOnView
+                end={8.21}
+                decimals={2}
+                prefix="+"
+                suffix="%"
+                className="text-3xl font-extrabold"
+              />
               <div className="mt-1 text-sm font-semibold">Increased viewership</div>
             </div>
             <div className="rounded-2xl border border-gray-200 p-6 text-center">
-              <div className="text-3xl font-extrabold">+14.6%</div>
+              <CountUpOnView
+                end={14.6}
+                decimals={1}
+                prefix="+"
+                suffix="%"
+                className="text-3xl font-extrabold"
+              />
               <div className="mt-1 text-sm font-semibold">Watch time</div>
             </div>
           </div>
@@ -270,5 +282,61 @@ function FaqRow({ q, a }: { q: string; a: string }) {
       </summary>
       <p className="mt-2 pr-8 text-sm text-gray-600">{a}</p>
     </details>
+  )
+}
+
+type CountUpProps = {
+  end: number
+  durationMs?: number
+  decimals?: number
+  prefix?: string
+  suffix?: string
+  className?: string
+}
+
+function CountUpOnView({ end, durationMs = 1200, decimals = 0, prefix = '', suffix = '', className = '' }: CountUpProps) {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const [value, setValue] = useState(0)
+  const [hasRun, setHasRun] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasRun) {
+            setHasRun(true)
+          }
+        })
+      },
+      { threshold: 0.4 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [hasRun])
+
+  useEffect(() => {
+    if (!hasRun) return
+    const start = performance.now()
+    const startValue = 0
+    const animate = (now: number) => {
+      const elapsed = now - start
+      const t = Math.min(1, elapsed / durationMs)
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - t, 3)
+      const current = startValue + (end - startValue) * eased
+      setValue(current)
+      if (t < 1) requestAnimationFrame(animate)
+    }
+    const id = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(id)
+  }, [hasRun, end, durationMs])
+
+  const formatted = `${prefix}${value.toFixed(decimals)}${suffix}`
+  return (
+    <div ref={ref} className={className} aria-label={`${prefix}${end}${suffix}`}>
+      {formatted}
+    </div>
   )
 }

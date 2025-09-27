@@ -153,6 +153,9 @@ export default function ClosedCaptionsSite() {
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
               <h3 className="text-xl font-semibold">Before → After</h3>
+              <p className="mt-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                YouTube’s auto‑generated captions suck. <span role="img" aria-label="nauseated face">🤮</span>
+              </p>
               <p className="mt-3 text-sm text-gray-600">
                 AI-powered translations featuring unparaelled nuance enabled by our fine-tuned state-of-the-art text-to-text model trained by polyglot native speakers. Always human‑verified.
               </p>

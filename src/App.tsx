@@ -35,7 +35,7 @@ function CopyEmailButton({ label, className }: { label: string; className: strin
       aria-live="polite"
       className={className}
     >
-      {copied ? 'Copied!' : label}
+      {copied ? 'Email copied to your clipboard!' : label}
     </button>
   )
 }
@@ -531,7 +531,7 @@ function ContactModal({ open, onClose }: ContactModalProps) {
           <div className="flex items-center justify-end gap-3 pt-2">
             <button type="button" onClick={onClose} className="rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold hover:bg-gray-50">Cancel</button>
             <button type="submit" className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
-              {copied ? 'Copied!' : 'Submit'}
+              {copied ? 'Email copied to your clipboard!' : 'Submit'}
             </button>
           </div>
         </form>

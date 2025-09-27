@@ -128,15 +128,9 @@ export default function ClosedCaptionsSite() {
             </p>
             <div className="mt-8 inline-flex items-center gap-3">
               <CopyEmailButton
-                label="Book a free audit"
+                label="Get in touch"
                 className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
               />
-              <a
-                href="#results"
-                className="inline-flex items-center rounded-2xl border border-blue-200 px-5 py-3 text-sm font-semibold text-blue-700 hover:border-blue-300 hover:bg-blue-50"
-              >
-                See the results
-              </a>
             </div>
           </div>
         </div>

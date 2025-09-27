@@ -210,7 +210,7 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h3 className="text-2xl font-bold">Pricing</h3>
-            <p className="mt-2 text-sm text-gray-600">Monthly plans. Cancel anytime.</p>
+            <p className="mt-2 text-sm text-gray-600 dark:text-white">Monthly plans. Cancel anytime.</p>
           </div>
 
           {(() => {

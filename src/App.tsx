@@ -258,11 +258,11 @@ export default function ClosedCaptionsSite() {
                   </div>
                 </div>
 
-                <div className="mx-auto mt-6 max-w-3xl">
+                <div className="mx-auto mt-6 w-full max-w-md">
                   {(() => {
                     const price = tier === 'under' ? 299 : 499
                     return (
-                      <div className="rounded-2xl border border-blue-200 p-10 text-center shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
+                      <div className="w-full rounded-2xl border border-blue-200 p-10 text-center shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
                         <div className="text-4xl font-extrabold">${price}<span className="text-sm font-semibold">/mo</span></div>
                       </div>
                     )

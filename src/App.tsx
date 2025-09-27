@@ -137,7 +137,6 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold">Before → After</h3>
               
               <p className="mt-3 text-sm text-gray-600 dark:text-white">
                 <span className="block">AI-powered language translations with unparaelled nuance.</span>

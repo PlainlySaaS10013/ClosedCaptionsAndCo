@@ -236,7 +236,7 @@ export default function ClosedCaptionsSite() {
           <h5 className="text-center text-sm font-semibold tracking-wide text-gray-500">FAQ</h5>
           <div className="mx-auto mt-6 max-w-3xl divide-y divide-gray-200">
             <FaqRow q="How do we start?" a="Share your channel and preferred languages. We scope the first batch and send a quote." />
-            <FaqRow q="Turnaround?" a="Usually 48–72 hours for new uploads; back catalog by plan." />
+            <FaqRow q="Turnaround?" a="<24 hours, 7 days a week!" />
             <FaqRow q="File types?" a=".SRT, .VTT, .SBV—plus YouTube direct upload." />
             <FaqRow q="Revisions?" a="Included. We match your voice and fix any names/terms fast." />
           </div>

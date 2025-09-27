@@ -131,6 +131,73 @@ export default function ClosedCaptionsSite() {
         </div>
       </section>
 
+      {/* PRICING */}
+      <section id="pricing" className="border-y border-gray-100 bg-white dark:bg-gray-950 dark:border-gray-800 cv-auto">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h3 className="text-2xl font-bold">Pricing</h3>
+            <p className="mt-2 text-sm text-gray-600 dark:text-white">Monthly plans. Cancel anytime.</p>
+          </div>
+
+          {(() => {
+            const [tier, setTier] = useState<'under' | 'over'>('under')
+            const underActive = tier === 'under'
+            const overActive = tier === 'over'
+            return (
+              <>
+                <div className="mx-auto mt-6 flex justify-center">
+                  <div className="inline-flex rounded-xl border border-gray-200 p-1 dark:border-gray-800" role="tablist" aria-label="Subscriber tier">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={underActive}
+                      onClick={() => setTier('under')}
+                      className={`px-4 py-2 text-sm font-semibold rounded-lg ${underActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
+                    >
+                      {"<1M Subs"}
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={overActive}
+                      onClick={() => setTier('over')}
+                      className={`ml-1 px-4 py-2 text-sm font-semibold rounded-lg ${overActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
+                    >
+                      1M+ subs
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mx-auto mt-6 w-full max-w-md">
+                  {(() => {
+                    const price = tier === 'under' ? 299 : 499
+                    return (
+                      <div className="w-full rounded-2xl border border-blue-200 p-10 text-center shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
+                        <div className="text-4xl font-extrabold">${price}<span className="text-sm font-semibold">/mo</span></div>
+                      </div>
+                    )
+                  })()}
+                </div>
+
+                <div className="mx-auto mt-6 flex max-w-5xl justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setIsContactOpen(true)}
+                    className="w-full max-w-md rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+                  >
+                    Become a client →
+                  </button>
+                </div>
+              </>
+            )
+          })()}
+
+          <p className="mx-auto mt-6 w-fit text-center text-xs text-white whitespace-normal sm:whitespace-nowrap">
+            Full money back if you don't see an average increase of at least 5% or more in your viewership and/or watchtime within the first 28 days.
+          </p>
+        </div>
+      </section>
+
 
       {/* BEFORE AFTER */}
       <section className="relative border-t border-gray-100 dark:border-gray-800 cv-auto" id="before-after">
@@ -201,73 +268,6 @@ export default function ClosedCaptionsSite() {
 
           <p className="mx-auto mt-6 w-fit whitespace-nowrap text-center text-xs text-gray-500 dark:text-white">
             *Data is based on 200+ clients’ average viewership before and after becoming a client—measured after 28 days of working with our firm.
-          </p>
-        </div>
-      </section>
-
-      {/* PRICING */}
-      <section id="pricing" className="border-y border-gray-100 bg-white dark:bg-gray-950 dark:border-gray-800 cv-auto">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h3 className="text-2xl font-bold">Pricing</h3>
-            <p className="mt-2 text-sm text-gray-600 dark:text-white">Monthly plans. Cancel anytime.</p>
-          </div>
-
-          {(() => {
-            const [tier, setTier] = useState<'under' | 'over'>('under')
-            const underActive = tier === 'under'
-            const overActive = tier === 'over'
-  return (
-    <>
-                <div className="mx-auto mt-6 flex justify-center">
-                  <div className="inline-flex rounded-xl border border-gray-200 p-1 dark:border-gray-800" role="tablist" aria-label="Subscriber tier">
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={underActive}
-                      onClick={() => setTier('under')}
-                      className={`px-4 py-2 text-sm font-semibold rounded-lg ${underActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
-                    >
-                      {"<1M Subs"}
-                    </button>
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={overActive}
-                      onClick={() => setTier('over')}
-                      className={`ml-1 px-4 py-2 text-sm font-semibold rounded-lg ${overActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
-                    >
-                      1M+ subs
-                    </button>
-                  </div>
-                </div>
-
-                <div className="mx-auto mt-6 w-full max-w-md">
-                  {(() => {
-                    const price = tier === 'under' ? 299 : 499
-                    return (
-                      <div className="w-full rounded-2xl border border-blue-200 p-10 text-center shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
-                        <div className="text-4xl font-extrabold">${price}<span className="text-sm font-semibold">/mo</span></div>
-                      </div>
-                    )
-                  })()}
-                </div>
-
-                <div className="mx-auto mt-6 flex max-w-5xl justify-center">
-                  <button
-                    type="button"
-                    onClick={() => setIsContactOpen(true)}
-                    className="w-full max-w-md rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700"
-                  >
-                    Become a client →
-                  </button>
-                </div>
-              </>
-            )
-          })()}
-
-          <p className="mx-auto mt-6 w-fit text-center text-xs text-white whitespace-normal sm:whitespace-nowrap">
-            Full money back if you don't see an average increase of at least 5% or more in your viewership and/or watchtime within the first 28 days.
           </p>
         </div>
       </section>

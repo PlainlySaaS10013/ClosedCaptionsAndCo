@@ -216,7 +216,7 @@ export default function ClosedCaptionsSite() {
               </div>
               <div className="flex gap-3">
                 <CopyEmailButton
-                  label="Get a free audit"
+                  label="Get in touch"
                   className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
                 />
                 <CopyEmailButton

@@ -42,10 +42,47 @@ function CopyEmailButton({ label, className }: { label: string; className: strin
 
 export default function ClosedCaptionsSite() {
   const [isContactOpen, setIsContactOpen] = useState(false)
+  const [themePref, setThemePref] = useState<'system' | 'light' | 'dark'>('system')
+
+  const isSystemDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const isDark = themePref === 'dark' || (themePref === 'system' && isSystemDark)
+
+  useEffect(() => {
+    const stored = localStorage.getItem('theme-pref') as 'system' | 'light' | 'dark' | null
+    if (stored) setThemePref(stored)
+  }, [])
+
+  useEffect(() => {
+    const root = document.documentElement
+    if (themePref === 'dark' || (themePref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      root.classList.add('dark')
+    } else {
+      root.classList.remove('dark')
+    }
+    if (themePref !== 'system') {
+      localStorage.setItem('theme-pref', themePref)
+    } else {
+      localStorage.removeItem('theme-pref')
+    }
+  }, [themePref])
+
+  useEffect(() => {
+    if (themePref !== 'system') return
+    const mql = window.matchMedia('(prefers-color-scheme: dark)')
+    const handler = () => {
+      const root = document.documentElement
+      if (mql.matches) root.classList.add('dark')
+      else root.classList.remove('dark')
+    }
+    mql.addEventListener('change', handler)
+    return () => mql.removeEventListener('change', handler)
+  }, [themePref])
+
+  const toggleTheme = () => setThemePref(isDark ? 'light' : 'dark')
   return (
-    <div className="min-h-screen bg-white text-gray-900 antialiased">
+    <div className="min-h-screen bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
       {/* NAVBAR */}
-      <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/80 backdrop-blur">
+      <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/80 backdrop-blur dark:border-gray-800 dark:bg-gray-900/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-3">
@@ -99,7 +136,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* PROBLEM CALLOUT */}
-      <section className="border-y border-gray-100 bg-gray-50">
+      <section className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
             <h2 className="text-2xl font-bold">YouTube’s auto‑generated captions suck. <span role="img" aria-label="nauseated face">🤮</span></h2>
@@ -155,7 +192,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* RESULTS / NUMBERS */}
-      <section id="results" className="border-y border-gray-100 bg-gray-50">
+      <section id="results" className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h3 className="text-2xl font-bold">Numbers don’t lie. <span role="img" aria-label="smiling with sunglasses">😎</span></h3>
@@ -230,7 +267,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* FAQ (concise) */}
-      <section id="faq" className="border-y border-gray-100 bg-gray-50">
+      <section id="faq" className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h5 className="text-center text-sm font-semibold tracking-wide text-gray-500">FAQ</h5>
           <div className="mx-auto mt-6 max-w-3xl divide-y divide-gray-200">
@@ -267,7 +304,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-white">
+      <footer className="bg-white dark:bg-gray-950">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-xs text-gray-500">
@@ -280,6 +317,22 @@ export default function ClosedCaptionsSite() {
                 className="underline decoration-blue-300 underline-offset-4 text-blue-700 hover:text-blue-600 hover:decoration-blue-600"
               />
             </p>
+          </div>
+          <div className="mt-6 flex items-center justify-center border-t border-gray-100 pt-6 dark:border-gray-800">
+            <div className="flex items-center gap-3 text-xs text-gray-500">
+              <span>Theme</span>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className={`relative h-6 w-11 rounded-full border transition-colors ${isDark ? 'bg-blue-600 border-blue-600' : 'bg-gray-200 border-gray-300 dark:bg-gray-700 dark:border-gray-600'}`}
+                aria-label="Toggle dark mode"
+              >
+                <span
+                  className={`absolute top-0.5 h-5 w-5 transform rounded-full bg-white transition-transform ${isDark ? 'translate-x-5' : 'translate-x-0.5'}`}
+                />
+              </button>
+              <span className="min-w-[3ch] text-gray-600 dark:text-gray-400">{isDark ? 'Dark' : 'Light'}</span>
+            </div>
           </div>
         </div>
       </footer>

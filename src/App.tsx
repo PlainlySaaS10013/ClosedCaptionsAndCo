@@ -193,7 +193,7 @@ export default function ClosedCaptionsSite() {
           </div>
 
           <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center shadow-sm">
+            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center text-gray-900 dark:text-gray-900 shadow-sm">
               <CountUpOnView
                 end={8.21}
                 decimals={2}
@@ -203,7 +203,7 @@ export default function ClosedCaptionsSite() {
               />
               <div className="mt-1 text-sm font-semibold">Increased viewership</div>
             </div>
-            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center shadow-sm">
+            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center text-gray-900 dark:text-gray-900 shadow-sm">
               <CountUpOnView
                 end={14.6}
                 decimals={1}

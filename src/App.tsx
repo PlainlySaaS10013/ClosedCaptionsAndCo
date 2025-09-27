@@ -59,11 +59,11 @@ export default function ClosedCaptionsSite() {
             <div className="flex items-center gap-3">
               <CopyEmailButton
                 label="Contact"
-                className="inline-flex items-center rounded-xl border border-gray-200 px-3 py-2 text-sm font-semibold hover:border-gray-300"
+                className="inline-flex items-center rounded-xl border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-700 hover:border-blue-300 hover:bg-blue-50"
               />
               <CopyEmailButton
                 label="Get Started"
-                className="inline-flex items-center rounded-xl bg-black px-3 py-2 text-sm font-semibold text-white hover:bg-gray-900"
+                className="inline-flex items-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
               />
             </div>
           </div>
@@ -84,11 +84,11 @@ export default function ClosedCaptionsSite() {
             <div className="mt-8 inline-flex items-center gap-3">
               <CopyEmailButton
                 label="Book a free audit"
-                className="inline-flex items-center rounded-2xl bg-black px-5 py-3 text-sm font-semibold text-white hover:bg-gray-900"
+                className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
               />
               <a
                 href="#results"
-                className="inline-flex items-center rounded-2xl border border-gray-200 px-5 py-3 text-sm font-semibold hover:border-gray-300"
+                className="inline-flex items-center rounded-2xl border border-blue-200 px-5 py-3 text-sm font-semibold text-blue-700 hover:border-blue-300 hover:bg-blue-50"
               >
                 See the results
               </a>
@@ -143,9 +143,9 @@ export default function ClosedCaptionsSite() {
                 </div>
               </div>
               {/* AFTER card */}
-              <div className="rounded-2xl border border-gray-900 p-4 shadow-[0_2px_0_0_rgba(0,0,0,0.9)]">
-                <div className="mb-2 text-xs font-semibold tracking-wide text-gray-900">AFTER</div>
-                <div className="rounded-xl bg-gray-900 p-4 text-sm text-white">
+              <div className="rounded-2xl border border-blue-700 p-4 shadow-[0_2px_0_0_rgba(29,78,216,0.9)]">
+                <div className="mb-2 text-xs font-semibold tracking-wide text-blue-700">AFTER</div>
+                <div className="rounded-xl bg-blue-700 p-4 text-sm text-white">
                   “Yeah—we planned this. Here’s why it works.” <br />
                   timing: precise • punctuation: correct • names: verified
                 </div>
@@ -206,11 +206,11 @@ export default function ClosedCaptionsSite() {
               <div className="flex gap-3">
                 <CopyEmailButton
                   label="Get a free audit"
-                  className="inline-flex items-center rounded-2xl bg-black px-5 py-3 text-sm font-semibold text-white hover:bg-gray-900"
+                  className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
                 />
                 <CopyEmailButton
                   label="Email us"
-                  className="inline-flex items-center rounded-2xl border border-gray-200 px-5 py-3 text-sm font-semibold hover:border-gray-300"
+                  className="inline-flex items-center rounded-2xl border border-blue-200 px-5 py-3 text-sm font-semibold text-blue-700 hover:border-blue-300 hover:bg-blue-50"
                 />
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function ClosedCaptionsSite() {
               <span role="img" aria-label="United States">🇺🇸</span> Based in Atlanta, Georgia •{' '}
               <CopyEmailButton
                 label={EMAIL}
-                className="underline decoration-gray-300 underline-offset-4 hover:decoration-gray-500"
+                className="underline decoration-blue-300 underline-offset-4 hover:decoration-blue-500 text-blue-700"
               />
             </p>
           </div>

@@ -94,8 +94,8 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/cc.svg" alt="Closed Captions & Co logo" className="h-8 w-8" />
-              <span className="text-sm font-semibold tracking-tight">Closed Captions & Co</span>
+              <img src="/cc.svg" alt="Closed Captions & Co. logo" className="h-8 w-8" />
+              <span className="text-sm font-semibold tracking-tight">Closed Captions & Co.</span>
             </div>
             <nav className="hidden items-center gap-6 text-sm font-medium sm:flex">
               <a href="#results" className="hover:text-gray-600">Results</a>
@@ -369,7 +369,7 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-xs text-gray-500 dark:text-white">
-              Closed Captions & Co • Copyright 2025. All Rights Reserved.
+              Closed Captions & Co. • Copyright 2025. All Rights Reserved.
             </p>
             <p className="text-xs text-gray-500 dark:text-white">
               <span role="img" aria-label="United States">🇺🇸</span> Based in Atlanta, Georgia •{' '}

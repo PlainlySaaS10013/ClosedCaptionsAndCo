@@ -123,7 +123,7 @@ export default function ClosedCaptionsSite() {
               We subtitle your YouTube videos so you don’t have to.
             </h1>
             <p className="mt-6 text-base text-gray-600 dark:text-white">
-              Proudly serving <span className="font-semibold text-gray-900 dark:text-white">200+ clients</span> with
+              Proudly serving <span className="font-semibold text-gray-900 dark:text-white">200+ clients</span> collectively reaching
               <span className="font-semibold text-gray-900 dark:text-white"> 40M+ subscribers</span> (as of Sept. 2025).
             </p>
             <div className="mt-8 inline-flex items-center gap-3">

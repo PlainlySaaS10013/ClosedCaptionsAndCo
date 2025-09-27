@@ -48,7 +48,7 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded-xl bg-black" aria-hidden />
+              <img src="/cc.svg" alt="Closed Captions & Co logo" className="h-8 w-8" />
               <span className="text-sm font-semibold tracking-tight">Closed Captions & Co</span>
             </div>
             <nav className="hidden items-center gap-6 text-sm font-medium sm:flex">

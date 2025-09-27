@@ -1,11 +1,71 @@
 @import "tailwindcss";
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    background-color: theme('colors.white');
+    color: theme('colors.gray.900');
+  }
+
+  html.dark {
+    background-color: theme('colors.gray.950');
+    color: theme('colors.white');
+  }
+
+  @supports (zoom: 1.1) {
+    body {
+      zoom: 1.1;
+    }
+  }
+
+  @supports not (zoom: 1.1) {
+    body {
+      font-size: 110%;
+    }
+  }
 }
 
 /* Performance: avoid painting offscreen sections until needed */
 .cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: 600px;
+}
+
+@keyframes glowing-btn-blue {
+  0% {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2), 0 0 0 0 #3662e3;
+  }
+  100% {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2), 0 0 0 4px rgba(54, 98, 227, 0);
+  }
+}
+
+@keyframes glowing-btn-blue-no-shadow {
+  0% {
+    box-shadow: 0 0 0 0 #3662e3;
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(54, 98, 227, 0);
+  }
+}
+
+@keyframes glowing-btn-gray {
+  0% {
+    box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 0 0 0 #d0d0d0;
+  }
+  100% {
+    box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 0 0 6px rgba(208,208,208,0);
+  }
+}
+
+.glowing-upgrade-button {
+  animation: glowing-btn-blue 2s infinite;
+}
+
+.glowing-continue-button {
+  animation: glowing-btn-blue-no-shadow 2s infinite;
+}
+
+.glowing-get-started-button {
+  animation: glowing-btn-gray 2s infinite;
 }

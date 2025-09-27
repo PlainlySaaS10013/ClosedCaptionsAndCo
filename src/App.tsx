@@ -253,7 +253,7 @@ export default function ClosedCaptionsSite() {
               </div>
               <div className="flex gap-3">
                 <CopyEmailButton
-                  label="Get in touch"
+                  label="Get in touch →"
                   className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
                 />
                 <CopyEmailButton
@@ -282,7 +282,7 @@ export default function ClosedCaptionsSite() {
                       onClick={() => setIsContactOpen(true)}
                       className="text-blue-700 underline decoration-blue-300 underline-offset-4 hover:decoration-blue-500"
                     >
-                      Get in touch
+                      Get in touch →
                     </button>
                   ),
                 },
@@ -424,7 +424,7 @@ function ContactModal({ open, onClose }: ContactModalProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={handleBackdrop}>
       <div ref={dialogRef} role="dialog" aria-modal="true" className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold">Get in touch</h3>
+          <h3 className="text-lg font-semibold">Get in touch →</h3>
           <button type="button" aria-label="Close" onClick={onClose} className="rounded-full p-2 hover:bg-gray-100">✕</button>
         </div>
         <form className="mt-4 space-y-4" onSubmit={handleSubmit}>

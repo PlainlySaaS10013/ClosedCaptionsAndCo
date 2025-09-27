@@ -136,17 +136,6 @@ export default function ClosedCaptionsSite() {
         </div>
       </section>
 
-      {/* PROBLEM CALLOUT */}
-      <section className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 cv-auto">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
-            <h2 className="text-2xl font-bold">YouTube’s auto‑generated captions suck. <span role="img" aria-label="nauseated face">🤮</span></h2>
-            <p className="max-w-2xl text-sm text-gray-600">
-              Accessibility matters. So do retention, watch time, and SEO. We fix captions properly—fast, accurate, on‑brand.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* BEFORE AFTER */}
       <section className="relative cv-auto" id="before-after">

@@ -154,7 +154,7 @@ export default function ClosedCaptionsSite() {
             <div>
               <h3 className="text-xl font-semibold">Before → After</h3>
               <p className="mt-3 text-sm text-gray-600">
-                Clean, human‑verified captions that match your voice. Better UX for every viewer.
+                AI-powered translations featuring unparaelled nuance enabled by our fine-tuned state-of-the-art text-to-text model trained by polyglot native speakers. Always human‑verified.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-gray-700">
                 <li className="flex items-start gap-3">

@@ -275,15 +275,15 @@ export default function ClosedCaptionsSite() {
                   </div>
                 </div>
 
-                <div className="mx-auto mt-6 grid max-w-5xl gap-4 sm:grid-cols-2">
-                  <div className={`rounded-2xl border p-6 shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-900 ${underActive ? 'border-blue-400' : 'border-blue-100 dark:border-gray-800 opacity-70'}`}>
-                    <h4 className="text-base font-semibold">Under 1M subscribers</h4>
-                    <div className="mt-2 text-3xl font-extrabold">$299<span className="text-sm font-semibold">/mo</span></div>
-                  </div>
-                  <div className={`rounded-2xl border p-6 shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-900 ${overActive ? 'border-blue-400' : 'border-blue-100 dark:border-gray-800 opacity-70'}`}>
-                    <h4 className="text-base font-semibold">1M+ subscribers</h4>
-                    <div className="mt-2 text-3xl font-extrabold">$499<span className="text-sm font-semibold">/mo</span></div>
-                  </div>
+                <div className="mx-auto mt-6 max-w-3xl">
+                  {(() => {
+                    const price = tier === 'under' ? 299 : 499
+                    return (
+                      <div className="rounded-2xl border border-blue-200 p-10 text-center shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
+                        <div className="text-4xl font-extrabold">${price}<span className="text-sm font-semibold">/mo</span></div>
+                      </div>
+                    )
+                  })()}
                 </div>
 
                 <div className="mx-auto mt-6 flex max-w-5xl justify-center">
@@ -406,7 +406,7 @@ export default function ClosedCaptionsSite() {
                 aria-label="Toggle dark mode"
               >
                 <span
-                  className={`absolute top-0.5 h-5 w-5 transform rounded-full bg-white transition-transform ${isDark ? 'translate-x-5' : 'translate-x-0.5'}`}
+                  className={`absolute left-0.5 top-0.5 h-5 w-5 transform rounded-full bg-white shadow transition-transform ${isDark ? 'translate-x-5' : 'translate-x-0'}`}
                 />
               </button>
               <span className="min-w-[3ch] text-gray-600 dark:text-gray-400">{isDark ? 'Dark' : 'Light'}</span>

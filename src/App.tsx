@@ -321,7 +321,7 @@ export default function ClosedCaptionsSite() {
               />
             </p>
           </div>
-          <div className="mt-6 flex items-center justify-center border-t border-gray-100 pt-6 dark:border-gray-800">
+          <div className="mt-6 flex items-center justify-start border-t border-gray-100 pt-6 dark:border-gray-800">
             <div className="flex items-center gap-3 text-xs text-gray-500">
               <span>Theme</span>
               <button

@@ -88,7 +88,7 @@ export default function ClosedCaptionsSite() {
 
   const toggleTheme = () => setThemePref(isDark ? 'light' : 'dark')
   return (
-    <div className="min-h-screen bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
+    <div className="min-h-screen bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-white">
       {/* NAVBAR */}
       <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/80 backdrop-blur dark:border-gray-800 dark:bg-gray-900/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -122,9 +122,9 @@ export default function ClosedCaptionsSite() {
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
               We subtitle your YouTube videos so you don’t have to.
             </h1>
-            <p className="mt-6 text-base text-gray-600">
-              Proudly serving <span className="font-semibold text-gray-900">200+ clients</span> with
-              <span className="font-semibold text-gray-900"> 40M+ subscribers</span> (as of Sept. 2025).
+            <p className="mt-6 text-base text-gray-600 dark:text-white">
+              Proudly serving <span className="font-semibold text-gray-900 dark:text-white">200+ clients</span> with
+              <span className="font-semibold text-gray-900 dark:text-white"> 40M+ subscribers</span> (as of Sept. 2025).
             </p>
             <div className="mt-8 inline-flex items-center gap-3">
               <CopyEmailButton
@@ -146,7 +146,7 @@ export default function ClosedCaptionsSite() {
               <p className="mt-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
                 YouTube’s auto‑generated captions suck. <span role="img" aria-label="nauseated face">🤮</span>
               </p>
-              <p className="mt-3 text-sm text-gray-600">
+              <p className="mt-3 text-sm text-gray-600 dark:text-white">
                 AI-powered language translations with unparaelled nuance. Always human‑verified.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-gray-700">
@@ -163,7 +163,7 @@ export default function ClosedCaptionsSite() {
             <div className="grid gap-4">
               {/* BEFORE card */}
               <div className="rounded-2xl border border-gray-200 p-4">
-                <div className="mb-2 text-xs font-semibold tracking-wide text-gray-500">
+                <div className="mb-2 text-xs font-semibold tracking-wide text-gray-500 dark:text-white">
                   BEFORE <span role="img" aria-label="cross mark">❌</span>
                 </div>
                 <div className="rounded-xl bg-gray-100 p-4 text-sm text-gray-600">
@@ -172,7 +172,7 @@ export default function ClosedCaptionsSite() {
               </div>
               {/* AFTER card */}
               <div className="rounded-2xl border border-blue-700 p-4 shadow-[0_2px_0_0_rgba(29,78,216,0.9)]">
-                <div className="mb-2 text-xs font-semibold tracking-wide text-blue-700">
+                <div className="mb-2 text-xs font-semibold tracking-wide text-blue-700 dark:text-white">
                   AFTER <span role="img" aria-label="check mark">✅</span>
                 </div>
                 <div className="rounded-xl bg-blue-700 p-4 text-sm text-white">
@@ -189,7 +189,7 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h3 className="text-2xl font-bold">Numbers don’t lie. <span role="img" aria-label="smiling with sunglasses">😎</span></h3>
-            <p className="mt-2 text-sm text-gray-600">Average stats for new clients*</p>
+            <p className="mt-2 text-sm text-gray-600 dark:text-white">Average stats for new clients*</p>
           </div>
 
           <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
@@ -215,7 +215,7 @@ export default function ClosedCaptionsSite() {
             </div>
           </div>
 
-          <p className="mx-auto mt-6 w-fit whitespace-nowrap text-center text-xs text-gray-500">
+          <p className="mx-auto mt-6 w-fit whitespace-nowrap text-center text-xs text-gray-500 dark:text-white">
             * Data is based on 200+ clients’ average viewership before and after becoming a client—measured after 28 days of working with our firm.
           </p>
         </div>
@@ -368,10 +368,10 @@ export default function ClosedCaptionsSite() {
       <footer className="bg-white dark:bg-gray-950">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 dark:text-white">
               Closed Captions & Co • Copyright 2025. All Rights Reserved.
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 dark:text-white">
               <span role="img" aria-label="United States">🇺🇸</span> Based in Atlanta, Georgia •{' '}
               <CopyEmailButton
                 label={EMAIL}
@@ -380,7 +380,7 @@ export default function ClosedCaptionsSite() {
             </p>
           </div>
           <div className="mt-6 flex items-center justify-start border-t border-gray-100 pt-6 dark:border-gray-800">
-            <div className="flex items-center gap-3 text-xs text-gray-500">
+            <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-white">
               <span>Theme</span>
               <button
                 type="button"
@@ -392,7 +392,7 @@ export default function ClosedCaptionsSite() {
                   className={`absolute left-0.5 top-0.5 h-5 w-5 transform rounded-full bg-white shadow transition-transform ${isDark ? 'translate-x-5' : 'translate-x-0'}`}
                 />
               </button>
-              <span className="min-w-[3ch] text-gray-600 dark:text-gray-400">{isDark ? 'Dark' : 'Light'}</span>
+              <span className="min-w-[3ch] text-gray-600 dark:text-white">{isDark ? 'Dark' : 'Light'}</span>
             </div>
           </div>
         </div>

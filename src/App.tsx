@@ -164,7 +164,7 @@ export default function ClosedCaptionsSite() {
                 YouTube’s auto‑generated captions suck. <span role="img" aria-label="nauseated face">🤮</span>
               </p>
               <p className="mt-3 text-sm text-gray-600">
-                AI-powered translations featuring unparaelled nuance enabled by our fine-tuned state-of-the-art text-to-text model trained by polyglot native speakers. Always human‑verified.
+                AI-powered language translations with unparaelled nuance. Always human‑verified.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-gray-700">
                 <li className="flex items-start gap-3">

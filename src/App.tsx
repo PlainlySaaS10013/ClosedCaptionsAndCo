@@ -45,6 +45,14 @@ export default function ClosedCaptionsSite() {
   const [themePref, setThemePref] = useState<'system' | 'light' | 'dark'>('system')
 
   const isSystemDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+
+  // Reduce scroll jank on iOS/Firefox with passive listeners
+  useEffect(() => {
+    const opts: AddEventListenerOptions = { passive: true }
+    const noop = () => {}
+    window.addEventListener('scroll', noop, opts)
+    return () => window.removeEventListener('scroll', noop, opts)
+  }, [])
   const isDark = themePref === 'dark' || (themePref === 'system' && isSystemDark)
 
   useEffect(() => {
@@ -109,7 +117,7 @@ export default function ClosedCaptionsSite() {
       </header>
 
       {/* HERO */}
-      <section className="relative">
+      <section className="relative cv-auto">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
@@ -136,7 +144,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* PROBLEM CALLOUT */}
-      <section className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
+      <section className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
             <h2 className="text-2xl font-bold">YouTube’s auto‑generated captions suck. <span role="img" aria-label="nauseated face">🤮</span></h2>
@@ -148,7 +156,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* BEFORE AFTER */}
-      <section className="relative" id="before-after">
+      <section className="relative cv-auto" id="before-after">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
@@ -195,7 +203,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* RESULTS / NUMBERS */}
-      <section id="results" className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
+      <section id="results" className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h3 className="text-2xl font-bold">Numbers don’t lie. <span role="img" aria-label="smiling with sunglasses">😎</span></h3>
@@ -232,7 +240,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* BENEFITS */}
-      <section id="benefits" className="relative">
+      <section id="benefits" className="relative cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <BenefitCard title="🔎 SEO that ranks." desc="Indexable, keyword‑rich captions boost discoverability and long‑tail search. We also optimize titles, descriptions, and tags." />
@@ -246,7 +254,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* CTA */}
-      <section className="relative">
+      <section className="relative cv-auto">
         <div className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-gray-200 bg-white p-8 sm:p-10">
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
@@ -270,7 +278,7 @@ export default function ClosedCaptionsSite() {
       </section>
 
       {/* FAQ (concise) */}
-      <section id="faq" className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
+      <section id="faq" className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h5 className="text-center text-sm font-semibold tracking-wide text-gray-500">FAQ</h5>
           <div className="mx-auto mt-6 max-w-3xl divide-y divide-gray-200">

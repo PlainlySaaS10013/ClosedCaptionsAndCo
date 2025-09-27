@@ -3,3 +3,9 @@
 @layer base {
   html { scroll-behavior: smooth; }
 }
+
+/* Performance: avoid painting offscreen sections until needed */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
+}

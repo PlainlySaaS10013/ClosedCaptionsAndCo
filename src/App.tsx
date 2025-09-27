@@ -346,7 +346,7 @@ export default function ClosedCaptionsSite() {
       {/* FAQ (concise) */}
       <section id="faq" className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <h5 className="text-center text-sm font-semibold tracking-wide text-gray-500">FAQ</h5>
+          <h5 className="text-center text-2xl font-semibold tracking-wide text-white">FAQ</h5>
           <div className="mx-auto mt-6 max-w-3xl divide-y divide-gray-200">
             {(() => {
               const [openFaq, setOpenFaq] = useState<number | null>(null)

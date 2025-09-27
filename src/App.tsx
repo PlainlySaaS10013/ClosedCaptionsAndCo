@@ -126,12 +126,7 @@ export default function ClosedCaptionsSite() {
               Proudly serving <span className="font-semibold text-gray-900 dark:text-white">200+ clients</span> collectively reaching
               <span className="font-semibold text-gray-900 dark:text-white"> 40M+ subscribers</span> (as of Sept. 2025).
             </p>
-            <div className="mt-8 inline-flex items-center gap-3">
-              <CopyEmailButton
-                label="Become a client"
-                className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
-              />
-            </div>
+            
           </div>
         </div>
       </section>
@@ -222,8 +217,8 @@ export default function ClosedCaptionsSite() {
             const [tier, setTier] = useState<'under' | 'over'>('under')
             const underActive = tier === 'under'
             const overActive = tier === 'over'
-            return (
-              <>
+  return (
+    <>
                 <div className="mx-auto mt-6 flex justify-center">
                   <div className="inline-flex rounded-xl border border-gray-200 p-1 dark:border-gray-800" role="tablist" aria-label="Subscriber tier">
                     <button
@@ -296,7 +291,7 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-gray-200 bg-white p-8 text-gray-900 dark:text-gray-900 sm:p-10">
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-              <div>
+      <div>
                 <h4 className="text-xl font-bold text-gray-900 dark:text-gray-900">Ready to level up your captions?</h4>
                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-700">Apply to become a client today.</p>
               </div>
@@ -312,7 +307,7 @@ export default function ClosedCaptionsSite() {
               </div>
             </div>
           </div>
-        </div>
+      </div>
       </section>
 
       {/* FAQ (concise) */}
@@ -332,7 +327,7 @@ export default function ClosedCaptionsSite() {
                       className="text-blue-700 underline decoration-blue-300 underline-offset-4 hover:decoration-blue-500"
                     >
                       Become a client →
-                    </button>
+        </button>
                   ),
                 },
                 { q: 'Turnaround?', a: '<24 hours, 7 days a week!' },

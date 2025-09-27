@@ -233,7 +233,7 @@ export default function ClosedCaptionsSite() {
                       onClick={() => setTier('under')}
                       className={`px-4 py-2 text-sm font-semibold rounded-lg ${underActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
                     >
-                      Under 1M subs
+                      <1M Subs
                     </button>
                     <button
                       type="button"

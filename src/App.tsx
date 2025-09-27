@@ -186,7 +186,7 @@ export default function ClosedCaptionsSite() {
             </div>
           </div>
 
-          <p className="mx-auto mt-6 max-w-3xl text-center text-xs text-gray-500">
+          <p className="mx-auto mt-6 w-fit whitespace-nowrap text-center text-xs text-gray-500">
             * Data is based on 200+ clients’ average viewership before and after becoming a client—measured after 28 days of working with our firm.
           </p>
         </div>

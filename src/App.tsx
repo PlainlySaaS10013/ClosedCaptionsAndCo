@@ -341,6 +341,7 @@ export default function ClosedCaptionsSite() {
                 },
                 { q: 'Turnaround?', a: '<24 hours, 7 days a week!' },
                 { q: 'File types?', a: '.SRT, .VTT, .SBV—plus YouTube direct upload.' },
+                { q: 'Pricing?', a: "$2,500 USD to add captions to all existing videos. Then $299/mo (or $499/mo if your channel has 1M+ subscribers)." },
               ]
               return items.map((item, idx) => (
                 <FaqRow

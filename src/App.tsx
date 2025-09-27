@@ -103,16 +103,12 @@ export default function ClosedCaptionsSite() {
               <a href="#faq" className="hover:text-gray-600">FAQ</a>
             </nav>
             <div className="flex items-center gap-3">
-              <CopyEmailButton
-                label="Contact"
-                className="inline-flex items-center rounded-xl border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-700 hover:border-blue-300 hover:bg-blue-50"
-              />
               <button
                 type="button"
                 onClick={() => setIsContactOpen(true)}
                 className="inline-flex items-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
               >
-                Get started
+                Get in touch
               </button>
             </div>
           </div>

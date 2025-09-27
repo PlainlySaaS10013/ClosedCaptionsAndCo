@@ -131,7 +131,7 @@ export default function ClosedCaptionsSite() {
         </div>
       </section>
 
-      {/* PRICING */}
+      {/* PRICING (moved to bottom) */}
       <section id="pricing" className="border-y border-gray-100 bg-white dark:bg-gray-950 dark:border-gray-800 cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">

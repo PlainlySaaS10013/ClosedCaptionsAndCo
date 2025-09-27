@@ -242,6 +242,45 @@ export default function ClosedCaptionsSite() {
         </div>
       </section>
 
+      {/* PRICING */}
+      <section id="pricing" className="border-y border-gray-100 bg-white dark:bg-gray-950 dark:border-gray-800 cv-auto">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h3 className="text-2xl font-bold">Pricing</h3>
+            <p className="mt-2 text-sm text-gray-600">Monthly plans. Cancel anytime.</p>
+          </div>
+
+          <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-sm dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
+              <h4 className="text-base font-semibold">Under 1M subscribers</h4>
+              <div className="mt-2 text-3xl font-extrabold">$299<span className="text-sm font-semibold">/mo</span></div>
+              <button
+                type="button"
+                onClick={() => setIsContactOpen(true)}
+                className="mt-6 w-full rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                Get in touch →
+              </button>
+            </div>
+            <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-sm dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
+              <h4 className="text-base font-semibold">1M+ subscribers</h4>
+              <div className="mt-2 text-3xl font-extrabold">$499<span className="text-sm font-semibold">/mo</span></div>
+              <button
+                type="button"
+                onClick={() => setIsContactOpen(true)}
+                className="mt-6 w-full rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                Get in touch →
+              </button>
+            </div>
+          </div>
+
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs text-gray-500">
+            Full money back if you don't see an average increase of 5% in your viewership and/or watchtime after the first 28 days.
+          </p>
+        </div>
+      </section>
+
       {/* BENEFITS */}
       <section id="benefits" className="relative cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

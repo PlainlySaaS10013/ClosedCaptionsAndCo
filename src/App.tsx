@@ -107,10 +107,13 @@ export default function ClosedCaptionsSite() {
                 label="Contact"
                 className="inline-flex items-center rounded-xl border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-700 hover:border-blue-300 hover:bg-blue-50"
               />
-              <CopyEmailButton
-                label="Get Started"
+              <button
+                type="button"
+                onClick={() => setIsContactOpen(true)}
                 className="inline-flex items-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
-              />
+              >
+                Get started
+              </button>
             </div>
           </div>
         </div>

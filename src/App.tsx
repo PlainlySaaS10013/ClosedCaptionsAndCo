@@ -473,7 +473,6 @@ function ContactModal({ open, onClose }: ContactModalProps) {
               {copied ? 'Copied!' : 'Submit'}
             </button>
           </div>
-          <p className="text-[11px] text-gray-500">We’ll copy your details to the clipboard so you can share or paste elsewhere.</p>
         </form>
       </div>
     </div>

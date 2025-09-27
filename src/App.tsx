@@ -280,7 +280,7 @@ export default function ClosedCaptionsSite() {
             <BenefitCard title="📈 Retention & watch time." desc="Clearer captions reduce drop‑off and increase AVD, session duration, and completion rates." />
             <BenefitCard title="🤖 Human + AI translation." desc="Patent‑pending AI paired with linguists delivers idiomatic, on‑brand subtitles—no awkward literalism." />
             <BenefitCard title="🌍 100+ languages on tap." desc="Spanish → Hindi, plus locale variants. We maintain terminology glossaries per channel." />
-            <BenefitCard title="🧑‍💻 White‑glove publishing." desc="We deliver SRT/VTT and push directly to YouTube. Optional add‑ons: chapters, thumbnails, metadata polish." />
+            <BenefitCard title="🧑‍💻 White‑glove publishing." desc="We deliver .SRT, .VTT, or .SBV, depending on your preference (if any). We can provide the closed caption files to you, or upload them on your behalf. Most clients opt to add our firm as their authorized channel manager with limited permissions for convenience purposes." />
             <BenefitCard title="🔐 Scoped access only." desc="Manager‑level permissions limited to captions. Audit trail. Revocable anytime." />
           </div>
         </div>

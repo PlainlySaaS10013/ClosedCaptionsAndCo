@@ -425,7 +425,14 @@ function ContactModal({ open, onClose }: ContactModalProps) {
       <div ref={dialogRef} role="dialog" aria-modal="true" className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold">Get in touch →</h3>
-          <button type="button" aria-label="Close" onClick={onClose} className="rounded-full p-2 hover:bg-gray-100">✕</button>
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={onClose}
+            className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-base leading-none hover:bg-gray-100"
+          >
+            ✕
+          </button>
         </div>
         <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
           <div>

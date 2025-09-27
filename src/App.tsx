@@ -234,21 +234,35 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h5 className="text-center text-sm font-semibold tracking-wide text-gray-500">FAQ</h5>
           <div className="mx-auto mt-6 max-w-3xl divide-y divide-gray-200">
-            <FaqRow
-              q="How do we start?"
-              a={
-                <button
-                  type="button"
-                  onClick={() => setIsContactOpen(true)}
-                  className="text-blue-700 underline decoration-blue-300 underline-offset-4 hover:decoration-blue-500"
-                >
-                  Get in touch
-                </button>
-              }
-            />
-            <FaqRow q="Turnaround?" a="<24 hours, 7 days a week!" />
-            <FaqRow q="File types?" a=".SRT, .VTT, .SBV—plus YouTube direct upload." />
-            <FaqRow q="Revisions?" a="Included. We match your voice and fix any names/terms fast." />
+            {(() => {
+              const [openFaq, setOpenFaq] = useState<number | null>(null)
+              const items: { q: string; a: React.ReactNode }[] = [
+                {
+                  q: 'How do we start?',
+                  a: (
+                    <button
+                      type="button"
+                      onClick={() => setIsContactOpen(true)}
+                      className="text-blue-700 underline decoration-blue-300 underline-offset-4 hover:decoration-blue-500"
+                    >
+                      Get in touch
+                    </button>
+                  ),
+                },
+                { q: 'Turnaround?', a: '<24 hours, 7 days a week!' },
+                { q: 'File types?', a: '.SRT, .VTT, .SBV—plus YouTube direct upload.' },
+                { q: 'Revisions?', a: 'Included. We match your voice and fix any names/terms fast.' },
+              ]
+              return items.map((item, idx) => (
+                <FaqRow
+                  key={idx}
+                  q={item.q}
+                  a={item.a}
+                  open={openFaq === idx}
+                  onToggle={() => setOpenFaq(openFaq === idx ? null : idx)}
+                />
+              ))
+            })()}
           </div>
         </div>
       </section>
@@ -285,15 +299,21 @@ function BenefitCard({ title, desc }: { title: string; desc: string }) {
   )
 }
 
-function FaqRow({ q, a }: { q: string; a: React.ReactNode }) {
+function FaqRow({ q, a, open, onToggle }: { q: string; a: React.ReactNode; open?: boolean; onToggle?: () => void }) {
   return (
-    <details className="group py-4">
-      <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-semibold">
+    <div className="py-4">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="flex w-full items-center justify-between text-left text-sm font-semibold"
+      >
         {q}
-        <span className="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-200 text-xs transition group-open:rotate-45">+</span>
-      </summary>
-      <div className="mt-2 pr-8 text-sm text-gray-600">{a}</div>
-    </details>
+        <span className="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-200 text-xs">
+          {open ? '^' : 'v'}
+        </span>
+      </button>
+      {open ? <div className="mt-2 pr-8 text-sm text-gray-600">{a}</div> : null}
+    </div>
   )
 }
 

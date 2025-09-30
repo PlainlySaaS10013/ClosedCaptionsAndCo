@@ -42,7 +42,7 @@ function CopyEmailButton({ label, className }: { label: string; className: strin
 
 export default function ClosedCaptionsSite() {
   const [isContactOpen, setIsContactOpen] = useState(false)
-  const [isDark, setIsDark] = useState(() => {
+  const [isDark] = useState(() => {
     if (typeof window === 'undefined') return false
     const stored = window.localStorage.getItem('theme-pref')
     if (stored === 'dark' || stored === 'light') return stored === 'dark'
@@ -65,7 +65,21 @@ export default function ClosedCaptionsSite() {
     window.localStorage.setItem('theme-pref', isDark ? 'dark' : 'light')
   }, [isDark])
 
-  const toggleTheme = () => setIsDark((prev) => !prev)
+  const keyQuotes = [
+    {
+      quote: '“Adding captions drove +7.32% lifetime and +13.48% first‑14‑days views in a controlled YouTube test.”',
+      source: '3Play Media',
+      href: 'https://www.3playmedia.com/case-studies/discovery-digital-networks',
+    },
+    {
+      quote: '“Adding captions drove +7.32% lifetime and +13.48% first‑14‑days views in a controlled YouTube test.”',
+      source: 'Placeholder testimonial',
+    },
+    {
+      quote: '“Adding captions drove +7.32% lifetime and +13.48% first‑14‑days views in a controlled YouTube test.”',
+      source: 'Placeholder testimonial',
+    },
+  ]
   return (
     <div className="min-h-screen bg-white text-gray-900 antialiased transition-colors duration-300 dark:bg-gray-950 dark:text-white">
       {/* NAVBAR */}
@@ -114,13 +128,16 @@ export default function ClosedCaptionsSite() {
 
 
       {/* BEFORE AFTER */}
-      <section className="relative border-t border-gray-100 dark:border-gray-800 cv-auto" id="before-after">
+      <section
+        className="relative border-y border-gray-100 bg-white dark:border-gray-800 dark:bg-gray-950 cv-auto"
+        id="before-after"
+      >
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
               
               <p className="mt-3 text-base text-gray-600 dark:text-white sm:text-lg">
-                <span className="block">AI-powered language translations with unparaelled nuance.</span>
+                <span className="block">AI-powered language translations with nuance.</span>
                 <span className="block">Always human‑verified.</span>
               </p>
               
@@ -149,40 +166,75 @@ export default function ClosedCaptionsSite() {
         </div>
       </section>
 
-      {/* RESULTS / NUMBERS */}
-      <section id="results" className="border-y border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 cv-auto">
+      {/* KEY QUOTES */}
+      <section className="bg-gray-50 dark:bg-gray-900 cv-auto overflow-hidden border-b border-gray-100 dark:border-gray-800">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h3 className="text-2xl font-bold">Numbers don’t lie. <span role="img" aria-label="smiling with sunglasses">😎</span></h3>
-            <p className="mt-2 text-sm text-gray-600 dark:text-white">Average stats for new clients*</p>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {keyQuotes.map(({ quote, source, href }) => (
+              <figure
+                key={quote}
+                className="flex h-full flex-col justify-between rounded-3xl border border-gray-200 bg-white p-8 text-center text-gray-900 shadow-sm dark:border-gray-800 dark:bg-gray-900 dark:text-white"
+              >
+                <blockquote className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                  {quote}
+                </blockquote>
+                <figcaption className="mt-4 text-sm text-gray-600 dark:text-gray-300">
+                  —
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ml-1 underline decoration-blue-300 underline-offset-4 text-blue-700 hover:text-blue-600 dark:text-blue-300 dark:hover:text-blue-200"
+                    >
+                      {source}
+                    </a>
+                  ) : (
+                    <span className="ml-1">{source}</span>
+                  )}
+                </figcaption>
+              </figure>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-transparent bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 p-6 text-center text-gray-900 dark:border-transparent dark:from-blue-900 dark:via-indigo-800 dark:to-purple-900 dark:text-white">
-              <CountUpOnView
-                end={8.21}
-                decimals={2}
-                prefix="+"
-                suffix="%"
-                className="text-3xl font-extrabold"
-              />
-              <div className="mt-1 text-sm font-semibold">Increased viewership</div>
+      {/* RESULTS / NUMBERS */}
+      <section id="results" className="bg-white dark:bg-gray-950 cv-auto border-t border-gray-100 dark:border-gray-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="py-16 border-b border-gray-100 dark:border-gray-800">
+            <div className="mx-auto max-w-3xl text-center">
+              <h3 className="text-2xl font-bold">Numbers don’t lie. <span role="img" aria-label="smiling with sunglasses">😎</span></h3>
+              <p className="mt-2 text-sm text-gray-600 dark:text-white">Average stats for new clients*</p>
             </div>
-            <div className="rounded-2xl border border-transparent bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 p-6 text-center text-gray-900 dark:border-transparent dark:from-blue-900 dark:via-indigo-800 dark:to-purple-900 dark:text-white">
-              <CountUpOnView
-                end={14.6}
-                decimals={1}
-                prefix="+"
-                suffix="%"
-                className="text-3xl font-extrabold"
-              />
-              <div className="mt-1 text-sm font-semibold">Watch time</div>
+
+            <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-transparent bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 p-6 text-center text-gray-900 dark:border-transparent dark:from-blue-900 dark:via-indigo-800 dark:to-purple-900 dark:text-white">
+                <CountUpOnView
+                  end={8.21}
+                  decimals={2}
+                  prefix="+"
+                  suffix="%"
+                  className="text-3xl font-extrabold"
+                />
+                <div className="mt-1 text-sm font-semibold">Increased viewership</div>
+              </div>
+              <div className="rounded-2xl border border-transparent bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 p-6 text-center text-gray-900 dark:border-transparent dark:from-blue-900 dark:via-indigo-800 dark:to-purple-900 dark:text-white">
+                <CountUpOnView
+                  end={14.6}
+                  decimals={1}
+                  prefix="+"
+                  suffix="%"
+                  className="text-3xl font-extrabold"
+                />
+                <div className="mt-1 text-sm font-semibold">Increased watch time</div>
+              </div>
             </div>
+
+            <p className="mx-auto mt-6 w-fit whitespace-nowrap text-center text-xs text-gray-500 dark:text-white">
+              *Data is based on 200+ clients’ average viewership before and after becoming a client—measured after 28 days of working with our firm.
+            </p>
           </div>
-
-          <p className="mx-auto mt-6 w-fit whitespace-nowrap text-center text-xs text-gray-500 dark:text-white">
-            *Data is based on 200+ clients’ average viewership before and after becoming a client—measured after 28 days of working with our firm.
-          </p>
         </div>
       </section>
 
@@ -190,12 +242,12 @@ export default function ClosedCaptionsSite() {
       <section id="benefits" className="relative cv-auto">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <BenefitCard title="🔎 SEO that ranks." desc="Adding closed captions (aka subtitles) does more than just delight your viewers. When you add custom subtitles to your videos, you are providing YouTube with additional meta-data that helps its algorithms better understand your content. This helps YouTube place your content in relevant search results. Even better? The increased watch time gives you an added boost! Double win!" />
-            <BenefitCard title="📈 Retention & watch time." desc="Clearer captions reduce drop‑off and increase AVD, session duration, and completion rates." />
-            <BenefitCard title="🤖 Human + AI translation." desc="Patent‑pending AI paired with linguists delivers idiomatic, on‑brand subtitles—no awkward literalism." />
-            <BenefitCard title="🌍 100+ languages on tap." desc="Spanish → Hindi, plus locale variants. We maintain terminology glossaries per channel." />
-            <BenefitCard title="🧑‍💻 White‑glove publishing." desc="We deliver .SRT, .VTT, or .SBV, depending on your preference (if any). We can provide the closed caption files to you, or upload them on your behalf." />
-            <BenefitCard title="🔐 Limited access only (opt.)." desc="We can provide the closed caption files to you directly or handle uploading the captions for you, whichever you prefer!" />
+            <BenefitCard title="🔎 SEO that ranks" desc="Adding closed captions (aka subtitles) does more than just delight your viewers. When you add custom subtitles to your videos, you are providing YouTube with additional meta-data that helps its algorithms better understand your content. This helps YouTube place your content in relevant search results. Even better? The increased watch time gives you an added boost! Double win!" />
+            <BenefitCard title="📈 Retention & watch time" desc="Clearer captions reduce drop‑off and increase AVD, session duration, and completion rates." />
+            <BenefitCard title="🤖 Human + AI translation" desc="Patent‑pending AI paired with linguists delivers idiomatic, on‑brand subtitles—no awkward literalism." />
+            <BenefitCard title="🌍 100+ languages on tap" desc="Spanish → Hindi, plus locale variants. We maintain terminology glossaries per channel." />
+            <BenefitCard title="🧑‍💻 White‑glove publishing" desc="We deliver .SRT, .VTT, or .SBV, depending on your preference (if any). We can provide the closed caption files to you, or upload them on your behalf." />
+            <BenefitCard title="🔐 Limited access only (opt.)" desc="We can provide the closed caption files to you directly or handle uploading the captions for you, whichever you prefer!" />
           </div>
         </div>
       </section>
@@ -205,85 +257,90 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-gray-200 bg-white p-8 text-gray-900 sm:p-10 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-      <div>
+              <div>
                 <h4 className="text-xl font-bold text-gray-900 dark:text-white">Ready to level up your captions?</h4>
                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">Get in touch to become a client today.</p>
               </div>
               <div className="flex">
-                <CopyEmailButton
-                  label="Become a client →"
+                <button
+                  type="button"
+                  onClick={() => setIsContactOpen(true)}
                   className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-shadow hover:bg-blue-700 glowing-upgrade-button cursor-pointer"
-                />
+                >
+                  Become a client →
+                </button>
               </div>
             </div>
           </div>
-      </div>
+        </div>
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="border-y border-gray-100 bg-white dark:bg-gray-950 dark:border-gray-800 cv-auto">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h3 className="text-2xl font-bold">Pricing</h3>
-            <p className="mt-2 text-sm text-gray-600 dark:text-white">Monthly plans. Cancel anytime.</p>
-          </div>
+      <section id="pricing" className="bg-white dark:bg-gray-950 cv-auto">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="border-y border-gray-100 py-16 dark:border-gray-800">
+            <div className="mx-auto max-w-3xl text-center">
+              <h3 className="text-2xl font-bold">Pricing</h3>
+              <p className="mt-2 text-sm text-gray-600 dark:text-white">Monthly plans. Cancel anytime.</p>
+            </div>
 
-          {(() => {
-            const [tier, setTier] = useState<'under' | 'over'>('under')
-            const underActive = tier === 'under'
-            const overActive = tier === 'over'
-            return (
-              <>
-                <div className="mx-auto mt-6 flex justify-center">
-                  <div className="inline-flex rounded-xl border border-gray-200 p-1 dark:border-gray-800" role="tablist" aria-label="Subscriber tier">
+            {(() => {
+              const [tier, setTier] = useState<'under' | 'over'>('under')
+              const underActive = tier === 'under'
+              const overActive = tier === 'over'
+              return (
+                <>
+                  <div className="mx-auto mt-6 flex justify-center">
+                    <div className="inline-flex rounded-xl border border-gray-200 p-1 dark:border-gray-800" role="tablist" aria-label="Subscriber tier">
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={underActive}
+                        onClick={() => setTier('under')}
+                        className={`px-4 py-2 text-sm font-semibold rounded-lg cursor-pointer ${underActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
+                      >
+                        {"<1M Subs"}
+                      </button>
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={overActive}
+                        onClick={() => setTier('over')}
+                        className={`ml-1 px-4 py-2 text-sm font-semibold rounded-lg cursor-pointer ${overActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
+                      >
+                        1M+ subs
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="mx-auto mt-6 w-full max-w-md">
+                    {(() => {
+                      const price = tier === 'under' ? 299 : 499
+                      return (
+                        <div className="w-full rounded-2xl border border-blue-200 p-10 text-center shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
+                          <div className="text-4xl font-extrabold">${price}<span className="text-sm font-semibold">/mo</span></div>
+                        </div>
+                      )
+                    })()}
+                  </div>
+
+                  <div className="mx-auto mt-6 flex max-w-5xl justify-center">
                     <button
                       type="button"
-                      role="tab"
-                      aria-selected={underActive}
-                      onClick={() => setTier('under')}
-                    className={`px-4 py-2 text-sm font-semibold rounded-lg cursor-pointer ${underActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
+                      onClick={() => setIsContactOpen(true)}
+                      className="w-full max-w-md rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700 glowing-upgrade-button cursor-pointer"
                     >
-                      {"<1M Subs"}
-                    </button>
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={overActive}
-                      onClick={() => setTier('over')}
-                    className={`ml-1 px-4 py-2 text-sm font-semibold rounded-lg cursor-pointer ${overActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}`}
-                    >
-                      1M+ subs
+                      Become a client →
                     </button>
                   </div>
-                </div>
+                </>
+              )
+            })()}
 
-                <div className="mx-auto mt-6 w-full max-w-md">
-                  {(() => {
-                    const price = tier === 'under' ? 299 : 499
-                    return (
-                      <div className="w-full rounded-2xl border border-blue-200 p-10 text-center shadow-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:border-gray-800 dark:from-gray-900 dark:to-gray-900">
-                        <div className="text-4xl font-extrabold">${price}<span className="text-sm font-semibold">/mo</span></div>
-                      </div>
-                    )
-                  })()}
-                </div>
-
-                <div className="mx-auto mt-6 flex max-w-5xl justify-center">
-                  <button
-                    type="button"
-                    onClick={() => setIsContactOpen(true)}
-                    className="w-full max-w-md rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700 glowing-upgrade-button cursor-pointer"
-                  >
-                    Become a client →
-                  </button>
-                </div>
-              </>
-            )
-          })()}
-
-          <p className="mx-auto mt-6 w-fit text-center text-xs text-white whitespace-normal sm:whitespace-nowrap">
-            Full money back if you don't see an average increase of at least 5% or more in your viewership and/or watchtime within the first 28 days.
-          </p>
+            <p className="mx-auto mt-6 w-fit text-center text-xs text-white whitespace-normal sm:whitespace-nowrap">
+              Full money back if you don't see an average increase of at least 5% or more in your viewership and/or watchtime within the first 28 days.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -333,7 +390,7 @@ export default function ClosedCaptionsSite() {
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-xs text-gray-500 dark:text-white">
-              Closed Captions & Co. • Copyright 2025. All Rights Reserved.
+              Subtitles.yt • Copyright 2025. All Rights Reserved.
             </p>
             <p className="text-xs text-gray-500 dark:text-white">
               <span role="img" aria-label="United States">🇺🇸</span> Based in Atlanta, Georgia •{' '}
@@ -345,7 +402,6 @@ export default function ClosedCaptionsSite() {
           </div>
           <div className="mt-6 border-t border-gray-100 pt-6 dark:border-gray-800" />
         </div>
-        <div className="border-t border-gray-100 dark:border-gray-800" />
       </footer>
 
       <ContactModal open={isContactOpen} onClose={() => setIsContactOpen(false)} />
@@ -356,49 +412,13 @@ export default function ClosedCaptionsSite() {
 function BenefitCard({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-2xl border border-gray-200 p-6">
-      <h4 className="text-base font-semibold">{title}</h4>
+      <h4 className="text-base font-semibold text-center">{title}</h4>
       <p className="mt-2 text-sm text-gray-600 dark:text-white">{desc}</p>
     </div>
   )
 }
 
-function FaqRow({ q, a, open, onToggle }: { q: string; a: React.ReactNode; open?: boolean; onToggle?: () => void }) {
-  return (
-    <div className="py-2">
-      <button
-        type="button"
-        onClick={onToggle}
-        className="flex w-full items-center justify-between text-left text-sm font-semibold"
-      >
-        {q}
-        <span
-          className={`ml-3 inline-flex h-5 w-5 items-center justify-center text-gray-400 transition-transform duration-200 dark:text-white/80 ${
-            open ? 'rotate-180' : 'rotate-0'
-          }`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-4 w-4"
-            aria-hidden="true"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </span>
-      </button>
-      <div
-        className={`grid overflow-hidden transition-all duration-300 ease-in-out ${open ? 'mt-2 grid-rows-[1fr] opacity-100' : 'mt-0 grid-rows-[0fr] opacity-0'}`}
-      >
-        <div className="pr-8 text-sm text-gray-600 dark:text-white">{a}</div>
-      </div>
-    </div>
-  )
-}
+// (FAQ component removed as it's currently unused to satisfy TS build)
 
 type ContactModalProps = { open: boolean; onClose: () => void }
 

@@ -41,7 +41,6 @@ function CopyEmailButton({ label, className }: { label: string; className: strin
 }
 
 export default function ClosedCaptionsSite() {
-  const [isContactOpen, setIsContactOpen] = useState(false)
   const [isDark] = useState(() => {
     if (typeof window === 'undefined') return false
     const stored = window.localStorage.getItem('theme-pref')
@@ -65,21 +64,6 @@ export default function ClosedCaptionsSite() {
     window.localStorage.setItem('theme-pref', isDark ? 'dark' : 'light')
   }, [isDark])
 
-  const keyQuotes = [
-    {
-      quote: '“Adding captions drove +7.32% lifetime and +13.48% first‑14‑days views in a controlled YouTube test.”',
-      source: '3Play Media',
-      href: 'https://www.3playmedia.com/case-studies/discovery-digital-networks',
-    },
-    {
-      quote: '“Adding captions drove +7.32% lifetime and +13.48% first‑14‑days views in a controlled YouTube test.”',
-      source: 'Placeholder testimonial',
-    },
-    {
-      quote: '“Adding captions drove +7.32% lifetime and +13.48% first‑14‑days views in a controlled YouTube test.”',
-      source: 'Placeholder testimonial',
-    },
-  ]
   return (
     <div className="min-h-screen bg-white text-gray-900 antialiased transition-colors duration-300 dark:bg-gray-950 dark:text-white">
       {/* NAVBAR */}
@@ -90,20 +74,12 @@ export default function ClosedCaptionsSite() {
               <img src="/cc.svg" alt="Closed Captions & Co. logo" className="h-8 w-8" />
               <span className="text-sm font-semibold tracking-tight">Subtitles.yt</span>
             </div>
-            <div className="flex items-center gap-6 text-sm font-medium">
-              <nav className="hidden items-center gap-6 sm:flex">
-                <a href="#results" className="hover:text-gray-600">Results</a>
-                <a href="#benefits" className="hover:text-gray-600">Growth</a>
-              </nav>
-              <div className="hidden sm:block h-6 w-px bg-gray-200 dark:bg-gray-800" aria-hidden="true" />
+            <div className="flex items-center gap-3 text-sm font-medium">
               <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setIsContactOpen(true)}
-                className="inline-flex items-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700 glowing-upgrade-button cursor-pointer"
-                >
-                Become a client →
-                </button>
+                <CopyEmailButton
+                  label={EMAIL}
+                  className="inline-flex items-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700 glowing-upgrade-button cursor-pointer"
+                />
               </div>
             </div>
           </div>
@@ -117,11 +93,6 @@ export default function ClosedCaptionsSite() {
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
               We subtitle your YouTube videos so you don’t have to.
             </h1>
-            <p className="mt-6 text-base text-gray-600 dark:text-white">
-              Proudly serving <span className="font-semibold text-gray-900 dark:text-white">200+ clients</span> collectively reaching
-              <span className="font-semibold text-gray-900 dark:text-white"> 40M+ subscribers</span> (as of Sept. 2025).
-            </p>
-            
           </div>
         </div>
       </section>
@@ -162,39 +133,6 @@ export default function ClosedCaptionsSite() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* KEY QUOTES */}
-      <section className="bg-gray-50 dark:bg-gray-900 cv-auto overflow-hidden border-b border-gray-100 dark:border-gray-800">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {keyQuotes.map(({ quote, source, href }) => (
-              <figure
-                key={quote}
-                className="flex h-full flex-col justify-between rounded-3xl border border-gray-200 bg-white p-8 text-center text-gray-900 shadow-sm dark:border-gray-800 dark:bg-gray-900 dark:text-white"
-              >
-                <blockquote className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
-                  {quote}
-                </blockquote>
-                <figcaption className="mt-4 text-sm text-gray-600 dark:text-gray-300">
-                  —
-                  {href ? (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="ml-1 underline decoration-blue-300 underline-offset-4 text-blue-700 hover:text-blue-600 dark:text-blue-300 dark:hover:text-blue-200"
-                    >
-                      {source}
-                    </a>
-                  ) : (
-                    <span className="ml-1">{source}</span>
-                  )}
-                </figcaption>
-              </figure>
-            ))}
           </div>
         </div>
       </section>
@@ -259,16 +197,13 @@ export default function ClosedCaptionsSite() {
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
                 <h4 className="text-xl font-bold text-gray-900 dark:text-white">Ready to level up your captions?</h4>
-                <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">Get in touch to become a client today.</p>
-              </div>
-              <div className="flex">
-                <button
-                  type="button"
-                  onClick={() => setIsContactOpen(true)}
-                  className="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-shadow hover:bg-blue-700 glowing-upgrade-button cursor-pointer"
-                >
-                  Become a client →
-                </button>
+                <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                  Drop us a line at:{' '}
+                  <CopyEmailButton
+                    label={EMAIL}
+                    className="text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-600 hover:decoration-blue-500 dark:text-blue-300 dark:decoration-blue-500 dark:hover:text-blue-200"
+                  />
+                </p>
               </div>
             </div>
           </div>
@@ -324,14 +259,12 @@ export default function ClosedCaptionsSite() {
                     })()}
                   </div>
 
-                  <div className="mx-auto mt-6 flex max-w-5xl justify-center">
-                    <button
-                      type="button"
-                      onClick={() => setIsContactOpen(true)}
-                      className="w-full max-w-md rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700 glowing-upgrade-button cursor-pointer"
-                    >
-                      Become a client →
-                    </button>
+                  <div className="mx-auto mt-6 flex max-w-5xl justify-center text-sm text-gray-600 dark:text-white">
+                    Reach out anytime at:{' '}
+                    <CopyEmailButton
+                      label={EMAIL}
+                      className="ml-1 text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-600 hover:decoration-blue-500 dark:text-blue-300 dark:decoration-blue-500 dark:hover:text-blue-200"
+                    />
                   </div>
                 </>
               )
@@ -403,8 +336,6 @@ export default function ClosedCaptionsSite() {
           <div className="mt-6 border-t border-gray-100 pt-6 dark:border-gray-800" />
         </div>
       </footer>
-
-      <ContactModal open={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </div>
   )
 }
@@ -419,127 +350,6 @@ function BenefitCard({ title, desc }: { title: string; desc: string }) {
 }
 
 // (FAQ component removed as it's currently unused to satisfy TS build)
-
-type ContactModalProps = { open: boolean; onClose: () => void }
-
-function ContactModal({ open, onClose }: ContactModalProps) {
-  const dialogRef = useRef<HTMLDivElement | null>(null)
-  const [email, setEmail] = useState('')
-  const [channel, setChannel] = useState('')
-  const [note, setNote] = useState('')
-  const [copied, setCopied] = useState(false)
-
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-    }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [open, onClose])
-
-  useEffect(() => {
-    if (!open) return
-    const el = dialogRef.current
-    el?.querySelector('input')?.focus()
-  }, [open])
-
-  const handleBackdrop = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) onClose()
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const payload = `Inquiry\nEmail: ${email}\nYouTube: ${channel}\nNotes: ${note || '(none)'}\n`
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(payload)
-      } else {
-        const ta = document.createElement('textarea')
-        ta.value = payload
-        document.body.appendChild(ta)
-        ta.select()
-        document.execCommand('copy')
-        document.body.removeChild(ta)
-      }
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
-      onClose()
-    } catch {
-      // swallow
-    }
-  }
-
-  if (!open) return null
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 backdrop-blur" onClick={handleBackdrop}>
-      <div
-        ref={dialogRef}
-        role="dialog"
-        aria-modal="true"
-        className="w-full max-w-lg rounded-2xl bg-white p-6 text-gray-900 shadow-xl dark:bg-gray-900 dark:text-white"
-      >
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Become a client</h3>
-          <button
-            type="button"
-            aria-label="Close"
-            onClick={onClose}
-            className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-base leading-none hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-          >
-            ✕
-          </button>
-        </div>
-        <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <label className="block text-xs font-medium text-gray-600 dark:text-gray-300">Your email address*</label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-400 focus:ring-0 dark:border-gray-700 dark:bg-gray-950 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-500"
-              placeholder="YourEmail@Example.com"
-            />
-          </div>
-          <div>
-            <label className="block text-xs font-medium text-gray-600 dark:text-gray-300">Your YouTube channel URL*</label>
-            <input
-              type="url"
-              required
-              value={channel}
-              onChange={(e) => setChannel(e.target.value)}
-              className="mt-1 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-400 focus:ring-0 dark:border-gray-700 dark:bg-gray-950 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-500"
-              placeholder="https://YouTube.com/@YourChannel"
-            />
-          </div>
-          <div>
-            <label className="block text-xs font-medium text-gray-600 dark:text-gray-300">Comments (optional)</label>
-            <textarea
-              rows={4}
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-              className="mt-1 w-full resize-y rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-400 focus:ring-0 dark:border-gray-700 dark:bg-gray-950 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-500"
-              placeholder="Questions? Comments? This is the place! :-)"
-            />
-          </div>
-          <div className="flex items-center justify-end gap-3 pt-2">
-            <button
-              type="button"
-              onClick={onClose}
-              className="rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800"
-            >
-              Cancel
-            </button>
-            <button type="submit" className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
-              {copied ? 'Email copied to your clipboard!' : 'Submit'}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  )
-}
 
 type CountUpProps = {
   end: number

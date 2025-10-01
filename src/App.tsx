@@ -66,26 +66,6 @@ export default function ClosedCaptionsSite() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 antialiased transition-colors duration-300 dark:bg-gray-950 dark:text-white">
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/80 backdrop-blur dark:border-gray-800 dark:bg-gray-900/80">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img src="/cc.svg" alt="Closed Captions & Co. logo" className="h-8 w-8" />
-              <span className="text-sm font-semibold tracking-tight">Subtitles.yt</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm font-medium">
-              <div className="flex items-center gap-3">
-                <CopyEmailButton
-                  label={EMAIL}
-                  className="inline-flex items-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700 glowing-upgrade-button cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* HERO */}
       <section className="relative cv-auto">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-8">
